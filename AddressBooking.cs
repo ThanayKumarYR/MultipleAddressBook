@@ -17,7 +17,7 @@ namespace AddressBook
             BookId = id;
             Bookname = name;
         }
-        public void Open()
+        public void Open(Dictionary<string,List<string>> city, Dictionary<string, List<string>> state)
         {
             try
             {
@@ -44,6 +44,23 @@ namespace AddressBook
                             if (count != list.Count)
                             {
                                 Contacts contacts = list[list.Count - 1];
+
+                                if (city.ContainsKey(contacts.City))
+                                {
+                                    city[contacts.City].Add(contacts.FirstName + " " + contacts.LastName);
+                                }
+                                else
+                                {
+                                    city[contacts.City] = new List<string>() { contacts.FirstName + " " + contacts.LastName };
+                                }
+                                if (state.ContainsKey(contacts.State))
+                                {
+                                    state[contacts.State].Add(contacts.FirstName + " " + contacts.LastName);
+                                }
+                                else
+                                {
+                                    state[contacts.State] = new List<string>() { contacts.FirstName + " " + contacts.LastName };
+                                }
                                 contacts.display();
                             }
                             break;

@@ -10,17 +10,19 @@ namespace MultipleAddressBook
 {
     public class Program
     {
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, welcome to Multiple Address Book !");
             Dictionary<int,AddressBooking> dictionary = new Dictionary<int,AddressBooking>();
+            Dictionary<string, List<string>> cities = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> states = new Dictionary<string, List<string>>();
+
             int BookIdMain = 1;
             while (true) 
             {
                 try
                 {
-                    Console.WriteLine("1.Create 2.Open 3.Rename 4.Display all 5.Display one 6.Delete 7.Exit");
+                    Console.WriteLine("1.Create 2.Open 3.Rename 4.Display all 5.Display one 6.Delete 7.City 8.State 9.Exit");
                     Console.Write("Enter the choice = ");
                     int choice = int.Parse(Console.ReadLine());
                     switch (choice)
@@ -42,7 +44,7 @@ namespace MultipleAddressBook
                                     Console.Write("Enter the id = ");
                                     int Bid = int.Parse(Console.ReadLine());
                                     if (dictionary.ContainsKey(Bid))
-                                        dictionary[Bid].Open();
+                                        dictionary[Bid].Open(cities,states);
                                     else Console.WriteLine("Id does not exist !");
                                     break;
                                 case 2:
@@ -50,7 +52,7 @@ namespace MultipleAddressBook
                                     string BookNamed = Console.ReadLine();
                                     if (dictionary.Values.Any((book) => book.Bookname == BookNamed))
                                     {
-                                        dictionary.Values.Single((book) => book.Bookname == BookNamed).Open();
+                                        dictionary.Values.Single((book) => book.Bookname == BookNamed).Open(cities,states);
                                     }
                                     else
                                     { 
@@ -178,7 +180,27 @@ namespace MultipleAddressBook
                             }
                             break;
                         case 7:
-                            return;
+                            Console.WriteLine("Contacts by City\n");
+                            Console.WriteLine("City -> Contacts");
+                            foreach (string city in cities.Keys)
+                            {
+                                foreach (string contact in cities[city])
+                                {
+                                    Console.WriteLine(city+" -> "+contact);
+                                }
+                            }
+                            break;
+                        case 8:
+                            Console.WriteLine("Contacts by State\n");
+                            Console.WriteLine("State -> Contacts");
+                            foreach (string state in states.Keys)
+                            {
+                                foreach (string contact in states[state])
+                                {
+                                    Console.WriteLine(state + " -> " + contact);
+                                }
+                            }
+                            break;
 
                         default:
                             Console.WriteLine("Invalid Input !");
