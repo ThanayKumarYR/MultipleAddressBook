@@ -1,0 +1,7 @@
+C:\Users\Thanay\source\repos\MultipleAddressBook\bin\Debug\MultipleAddressBook.exe.config
+C:\Users\Thanay\source\repos\MultipleAddressBook\bin\Debug\MultipleAddressBook.exe
+C:\Users\Thanay\source\repos\MultipleAddressBook\bin\Debug\MultipleAddressBook.pdb
+C:\Users\Thanay\source\repos\MultipleAddressBook\obj\Debug\MultipleAddressBook.csproj.AssemblyReference.cache
+C:\Users\Thanay\source\repos\MultipleAddressBook\obj\Debug\MultipleAddressBook.csproj.CoreCompileInputs.cache
+C:\Users\Thanay\source\repos\MultipleAddressBook\obj\Debug\MultipleAddressBook.exe
+C:\Users\Thanay\source\repos\MultipleAddressBook\obj\Debug\MultipleAddressBook.pdb
